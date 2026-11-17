@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Atlas Logistics brand identity">
+  <rect width="800" height="600" fill="#f0ebe1"/>
+  <rect x="60" y="60" width="380" height="480" rx="20" fill="#14213d"/>
+  <g transform="translate(250 270)">
+    <path d="M0 -110 L96 70 L-96 70 Z" fill="#e76f2c"/>
+    <path d="M0 -40 L52 70 L-52 70 Z" fill="#14213d"/>
+    <rect x="-130" y="96" width="260" height="14" rx="7" fill="#f0ebe1"/>
+    <rect x="-80" y="124" width="160" height="8" rx="4" fill="#f0ebe1" opacity=".45"/>
+  </g>
+  <g transform="translate(480 80) rotate(-6)">
+    <rect width="250" height="150" rx="12" fill="#fff"/>
+    <path d="M38 98 L62 52 L86 98 Z" fill="#e76f2c"/>
+    <rect x="104" y="58" width="110" height="10" rx="5" fill="#14213d"/>
+    <rect x="104" y="78" width="80" height="7" rx="3.5" fill="#14213d" opacity=".4"/>
+    <rect x="104" y="92" width="96" height="7" rx="3.5" fill="#14213d" opacity=".4"/>
+  </g>
+  <g transform="translate(480 290)">
+    <rect width="250" height="150" rx="12" fill="#e76f2c"/>
+    <path d="M125 30 L175 120 L75 120 Z" fill="#f0ebe1"/>
+    <path d="M125 66 L152 120 L98 120 Z" fill="#e76f2c"/>
+  </g>
+  <g transform="translate(480 470)">
+    <circle cx="22" cy="22" r="22" fill="#14213d"/>
+    <circle cx="80" cy="22" r="22" fill="#e76f2c"/>
+    <circle cx="138" cy="22" r="22" fill="#f4b183"/>
+    <circle cx="196" cy="22" r="22" fill="#fff" stroke="#14213d" stroke-opacity=".15"/>
+  </g>
+</svg>

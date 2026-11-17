@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Nord Coffee packaging">
+  <rect width="800" height="600" fill="#dde4ea"/>
+  <rect y="440" width="800" height="160" fill="#cbd5de"/>
+  <g transform="translate(150 120)">
+    <path d="M0 40 L20 0 L180 0 L200 40 L200 360 Q200 380 180 380 L20 380 Q0 380 0 360 Z" fill="#1d1f24"/>
+    <path d="M20 0 L40 40 L160 40 L180 0" fill="none" stroke="#3a3d45" stroke-width="3"/>
+    <circle cx="100" cy="170" r="54" fill="#efe8dc"/>
+    <path d="M60 190 L86 150 L100 168 L116 144 L142 190 Z" fill="#1d1f24"/>
+    <rect x="50" y="250" width="100" height="10" rx="5" fill="#efe8dc"/>
+    <rect x="66" y="270" width="68" height="7" rx="3.5" fill="#efe8dc" opacity=".5"/>
+  </g>
+  <g transform="translate(390 170)">
+    <path d="M0 34 L17 0 L153 0 L170 34 L170 300 Q170 318 152 318 L18 318 Q0 318 0 300 Z" fill="#efe8dc"/>
+    <circle cx="85" cy="140" r="44" fill="#1d1f24"/>
+    <path d="M52 156 L74 124 L85 138 L98 118 L120 156 Z" fill="#efe8dc"/>
+    <rect x="42" y="206" width="86" height="9" rx="4.5" fill="#1d1f24"/>
+    <rect x="56" y="224" width="58" height="6" rx="3" fill="#1d1f24" opacity=".45"/>
+    <rect x="0" y="262" width="170" height="20" fill="#c08457"/>
+  </g>
+  <g transform="translate(600 360)">
+    <path d="M0 0 H90 L80 110 Q78 124 64 124 H26 Q12 124 10 110 Z" fill="#fff"/>
+    <path d="M90 22 q30 0 30 28 q0 28 -34 28" fill="none" stroke="#fff" stroke-width="10"/>
+    <ellipse cx="45" cy="6" rx="40" ry="8" fill="#6b4226"/>
+  </g>
+</svg>

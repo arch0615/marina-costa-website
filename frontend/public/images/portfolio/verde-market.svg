@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Verde Market online store">
+  <rect width="800" height="600" fill="#e4ede0"/>
+  <g transform="translate(90 70)">
+    <rect width="620" height="460" rx="18" fill="#fff"/>
+    <rect width="620" height="40" rx="18" fill="#f3f1ea"/>
+    <rect y="22" width="620" height="18" fill="#f3f1ea"/>
+    <circle cx="24" cy="20" r="6" fill="#e98a6b"/><circle cx="44" cy="20" r="6" fill="#f2c14e"/><circle cx="64" cy="20" r="6" fill="#7cc6a4"/>
+    <rect x="28" y="62" width="70" height="12" rx="6" fill="#2f6b3a"/>
+    <g fill="#15171c" opacity=".3"><rect x="380" y="64" width="44" height="8" rx="4"/><rect x="438" y="64" width="44" height="8" rx="4"/><rect x="496" y="64" width="44" height="8" rx="4"/></g>
+    <rect x="556" y="58" width="36" height="20" rx="10" fill="#2f6b3a"/>
+    <rect x="28" y="96" width="564" height="150" rx="14" fill="#2f6b3a"/>
+    <rect x="56" y="128" width="200" height="22" rx="8" fill="#f7f5f0"/>
+    <rect x="56" y="160" width="150" height="10" rx="5" fill="#f7f5f0" opacity=".6"/>
+    <rect x="56" y="196" width="96" height="28" rx="14" fill="#f2c14e"/>
+    <circle cx="470" cy="172" r="56" fill="#e98a6b"/>
+    <circle cx="530" cy="150" r="36" fill="#f2c14e"/>
+    <path d="M462 112 q14 -26 34 -18 q-12 22 -34 18z" fill="#7cc6a4"/>
+    <g>
+      <rect x="28" y="268" width="174" height="166" rx="14" fill="#f6f3ec"/>
+      <circle cx="115" cy="330" r="38" fill="#c44536"/>
+      <rect x="44" y="388" width="90" height="9" rx="4.5" fill="#15171c" opacity=".55"/>
+      <rect x="44" y="406" width="44" height="9" rx="4.5" fill="#2f6b3a"/>
+      <rect x="223" y="268" width="174" height="166" rx="14" fill="#f6f3ec"/>
+      <ellipse cx="310" cy="330" rx="46" ry="30" fill="#f2c14e"/>
+      <rect x="239" y="388" width="70" height="9" rx="4.5" fill="#15171c" opacity=".55"/>
+      <rect x="239" y="406" width="44" height="9" rx="4.5" fill="#2f6b3a"/>
+      <rect x="418" y="268" width="174" height="166" rx="14" fill="#f6f3ec"/>
+      <circle cx="490" cy="336" r="26" fill="#7cc6a4"/><circle cx="526" cy="324" r="30" fill="#4f9a62"/>
+      <rect x="434" y="388" width="96" height="9" rx="4.5" fill="#15171c" opacity=".55"/>
+      <rect x="434" y="406" width="44" height="9" rx="4.5" fill="#2f6b3a"/>
+    </g>
+  </g>
+</svg>

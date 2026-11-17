@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Lumen Bank mobile app screens">
+  <rect width="800" height="600" fill="#0f2a3d"/>
+  <circle cx="640" cy="90" r="190" fill="#14374f"/>
+  <g transform="translate(205 70)">
+    <rect width="190" height="400" rx="30" fill="#f7f5f0"/>
+    <rect x="18" y="26" width="70" height="10" rx="5" fill="#0f2a3d" opacity=".25"/>
+    <rect x="18" y="56" width="154" height="96" rx="16" fill="#f2c14e"/>
+    <rect x="34" y="76" width="56" height="8" rx="4" fill="#0f2a3d" opacity=".45"/>
+    <rect x="34" y="96" width="96" height="18" rx="6" fill="#0f2a3d"/>
+    <rect x="34" y="126" width="40" height="8" rx="4" fill="#0f2a3d" opacity=".45"/>
+    <g fill="#0f2a3d">
+      <circle cx="44" cy="186" r="16" opacity=".1"/><circle cx="95" cy="186" r="16" opacity=".1"/><circle cx="146" cy="186" r="16" opacity=".1"/>
+    </g>
+    <g>
+      <rect x="18" y="226" width="154" height="44" rx="12" fill="#fff"/>
+      <circle cx="40" cy="248" r="10" fill="#7cc6a4"/>
+      <rect x="58" y="240" width="64" height="7" rx="3.5" fill="#0f2a3d" opacity=".55"/>
+      <rect x="58" y="252" width="40" height="6" rx="3" fill="#0f2a3d" opacity=".25"/>
+      <rect x="18" y="278" width="154" height="44" rx="12" fill="#fff"/>
+      <circle cx="40" cy="300" r="10" fill="#e98a6b"/>
+      <rect x="58" y="292" width="72" height="7" rx="3.5" fill="#0f2a3d" opacity=".55"/>
+      <rect x="58" y="304" width="34" height="6" rx="3" fill="#0f2a3d" opacity=".25"/>
+      <rect x="18" y="330" width="154" height="44" rx="12" fill="#fff"/>
+      <circle cx="40" cy="352" r="10" fill="#8aa7e6"/>
+      <rect x="58" y="344" width="52" height="7" rx="3.5" fill="#0f2a3d" opacity=".55"/>
+      <rect x="58" y="356" width="44" height="6" rx="3" fill="#0f2a3d" opacity=".25"/>
+    </g>
+  </g>
+  <g transform="translate(415 130)">
+    <rect width="190" height="400" rx="30" fill="#1c4a68"/>
+    <rect x="18" y="26" width="90" height="10" rx="5" fill="#f7f5f0" opacity=".4"/>
+    <rect x="18" y="52" width="120" height="22" rx="7" fill="#f7f5f0"/>
+    <polyline points="22,210 50,180 78,192 106,140 134,156 168,108" fill="none" stroke="#f2c14e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="18" y1="230" x2="172" y2="230" stroke="#f7f5f0" stroke-opacity=".2" stroke-width="2"/>
+    <g fill="#f7f5f0">
+      <rect x="22" y="262" width="22" height="70" rx="6" opacity=".25"/>
+      <rect x="56" y="242" width="22" height="90" rx="6" opacity=".25"/>
+      <rect x="90" y="282" width="22" height="50" rx="6" opacity=".25"/>
+      <rect x="124" y="252" width="22" height="80" rx="6" fill="#f2c14e"/>
+    </g>
+    <rect x="18" y="352" width="154" height="30" rx="15" fill="#f2c14e"/>
+  </g>
+</svg>

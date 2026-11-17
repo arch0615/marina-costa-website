@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+
+/*
+ * ─── Design system ────────────────────────────────────────────────────────────
+ * Single source of truth for the presentation website and the digital card.
+ * Semantic tokens follow shadcn/ui naming so UI primitives pick them up.
+ *
+ *   Primary    deep ink-navy   → main actions, footer, card cover
+ *   Secondary  warm sand       → secondary buttons, chips, quiet surfaces
+ *   Highlight  terracotta      → the brand accent, used sparingly (eyebrows, marks)
+ *   Accent     soft sand       → interactive hover surfaces (shadcn convention)
+ * All text/background pairs meet WCAG 2.2 AA contrast.
+ */
+:root {
+  --background: #f7f5f0;
+  --foreground: #15171c;
+
+  --card: #ffffff;
+  --card-foreground: #15171c;
+  --popover: #ffffff;
+  --popover-foreground: #15171c;
+
+  --primary: #1c2b4a;
+  --primary-hover: #26385e;
+  --primary-foreground: #ffffff;
+
+  --secondary: #ebe6db;
+  --secondary-foreground: #15171c;
+
+  --muted: #efece5;
+  --muted-foreground: #565b66;
+
+  --accent: #efe9de;
+  --accent-foreground: #15171c;
+
+  --highlight: #a84a23;
+  --highlight-soft: #f4e5da;
+
+  --success: #2f6f4a;
+  --success-soft: #e3f0e7;
+  --destructive: #b42318;
+  --destructive-soft: #fdecea;
+
+  --border: #e3ded3;
+  --input: #d9d3c6;
+  --ring: #1c2b4a;
+
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-destructive: var(--destructive);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Typography */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, 'Times New Roman', serif;
+
+  --text-display: clamp(2.75rem, 1.85rem + 3.6vw, 4.75rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.025em;
+  --text-heading: clamp(2rem, 1.55rem + 1.8vw, 3rem);
+  --text-heading--line-height: 1.08;
+  --text-heading--letter-spacing: -0.02em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.6;
+
+  /* Radius scale */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  /* Elevation */
+  --shadow-soft: 0 1px 2px rgb(21 23 28 / 0.04), 0 4px 16px -4px rgb(21 23 28 / 0.06);
+  --shadow-lift: 0 2px 6px rgb(21 23 28 / 0.05), 0 18px 40px -12px rgb(21 23 28 / 0.16);
+
+  /* Spacing: vertical rhythm between page sections */
+  --spacing-section: clamp(4.5rem, 3rem + 5vw, 8rem);
+
+  /* Breakpoints: mobile < 768 ≤ tablet < 1024 ≤ laptop < 1440 ≤ desktop */
+  --breakpoint-2xl: 90rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100dvh;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--highlight-soft);
+    color: var(--foreground);
+  }
+}

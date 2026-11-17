@@ -1,0 +1,39 @@
+{
+  "name": "professional-presence",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Professional presentation website and interactive digital business card",
+  "type": "module",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @presence/backend --filter @presence/frontend dev",
+    "build": "pnpm --filter @presence/shared build && pnpm --filter @presence/backend build && pnpm --filter @presence/frontend build",
+    "start": "pnpm --filter @presence/backend start",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm --workspace-concurrency=1 --filter @presence/backend --filter @presence/frontend test",
+    "test:e2e": "pnpm --filter @presence/e2e test",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "db:migrate": "pnpm --filter @presence/backend db:migrate",
+    "db:deploy": "pnpm --filter @presence/backend db:deploy",
+    "db:seed": "pnpm --filter @presence/backend db:seed",
+    "db:reset": "pnpm --filter @presence/backend db:reset",
+    "db:studio": "pnpm --filter @presence/backend db:studio"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "eslint": "9.39.5",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.8",
+    "globals": "17.14.0",
+    "prettier": "3.10.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.73.0"
+  }
+}

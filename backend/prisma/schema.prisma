@@ -1,0 +1,190 @@
+// Prisma schema for the professional presentation website & digital business card.
+// The application serves a single professional profile, but every content table is
+// related to `Profile` so the model stays correct if more profiles are added later.
+
+generator client {
+  provider            = "prisma-client"
+  output              = "../src/generated/prisma"
+  moduleFormat        = "esm"
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum SocialPlatform {
+  LINKEDIN
+  INSTAGRAM
+  FACEBOOK
+  X
+  YOUTUBE
+  GITHUB
+}
+
+enum SubmissionStatus {
+  NEW
+  READ
+  ARCHIVED
+  SPAM
+}
+
+model Profile {
+  id                String   @id @default(uuid(7)) @db.Uuid
+  /// Stable key used to load the profile; the default profile uses "default".
+  slug              String   @unique @default("default") @db.VarChar(64)
+  fullName          String   @map("full_name") @db.VarChar(120)
+  professionalTitle String   @map("professional_title") @db.VarChar(120)
+  companyName       String?  @map("company_name") @db.VarChar(120)
+  /// Short introduction used in the hero section and on the digital card.
+  headline          String   @db.VarChar(300)
+  biography         String   @db.Text
+  profileImage      String?  @map("profile_image") @db.VarChar(500)
+  email             String   @db.VarChar(254)
+  /// Phone numbers are stored in international (E.164-style) format, e.g. +5511987654321.
+  phone             String?  @db.VarChar(30)
+  whatsapp          String?  @db.VarChar(30)
+  website           String?  @db.VarChar(500)
+  location          String?  @db.VarChar(120)
+  skills            String[] @default([])
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  services           Service[]
+  portfolioItems     PortfolioItem[]
+  socialLinks        SocialLink[]
+  experiences        Experience[]
+  qualifications     Qualification[]
+  testimonials       Testimonial[]
+  contactSubmissions ContactSubmission[]
+
+  @@map("profiles")
+}
+
+model Service {
+  id           String   @id @default(uuid(7)) @db.Uuid
+  profileId    String   @map("profile_id") @db.Uuid
+  title        String   @db.VarChar(120)
+  description  String   @db.VarChar(600)
+  /// Lucide icon name (kebab-case), e.g. "palette".
+  icon         String   @db.VarChar(50)
+  displayOrder Int      @default(0) @map("display_order")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, isActive, displayOrder])
+  @@map("services")
+}
+
+model PortfolioItem {
+  id           String   @id @default(uuid(7)) @db.Uuid
+  profileId    String   @map("profile_id") @db.Uuid
+  title        String   @db.VarChar(120)
+  description  String   @db.VarChar(1000)
+  image        String?  @db.VarChar(500)
+  projectUrl   String?  @map("project_url") @db.VarChar(500)
+  category     String   @db.VarChar(60)
+  technologies String[] @default([])
+  /// Featured projects are highlighted on the digital business card.
+  isFeatured   Boolean  @default(false) @map("is_featured")
+  displayOrder Int      @default(0) @map("display_order")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, isActive, displayOrder])
+  @@map("portfolio_items")
+}
+
+model SocialLink {
+  id           String         @id @default(uuid(7)) @db.Uuid
+  profileId    String         @map("profile_id") @db.Uuid
+  platform     SocialPlatform
+  url          String         @db.VarChar(500)
+  displayOrder Int            @default(0) @map("display_order")
+  isActive     Boolean        @default(true) @map("is_active")
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, platform])
+  @@index([profileId, isActive, displayOrder])
+  @@map("social_links")
+}
+
+model Experience {
+  id           String    @id @default(uuid(7)) @db.Uuid
+  profileId    String    @map("profile_id") @db.Uuid
+  role         String    @db.VarChar(120)
+  organization String    @db.VarChar(120)
+  startDate    DateTime  @map("start_date") @db.Date
+  /// Null means the position is current.
+  endDate      DateTime? @map("end_date") @db.Date
+  description  String?   @db.VarChar(600)
+  displayOrder Int       @default(0) @map("display_order")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, displayOrder])
+  @@map("experiences")
+}
+
+model Qualification {
+  id           String @id @default(uuid(7)) @db.Uuid
+  profileId    String @map("profile_id") @db.Uuid
+  title        String @db.VarChar(160)
+  institution  String @db.VarChar(160)
+  year         Int?   @db.SmallInt
+  displayOrder Int    @default(0) @map("display_order")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, displayOrder])
+  @@map("qualifications")
+}
+
+model Testimonial {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  profileId     String   @map("profile_id") @db.Uuid
+  authorName    String   @map("author_name") @db.VarChar(120)
+  authorRole    String?  @map("author_role") @db.VarChar(120)
+  authorCompany String?  @map("author_company") @db.VarChar(120)
+  authorImage   String?  @map("author_image") @db.VarChar(500)
+  quote         String   @db.VarChar(1200)
+  displayOrder  Int      @default(0) @map("display_order")
+  isActive      Boolean  @default(true) @map("is_active")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, isActive, displayOrder])
+  @@map("testimonials")
+}
+
+model ContactSubmission {
+  id         String           @id @default(uuid(7)) @db.Uuid
+  /// The profile that was contacted. Kept nullable so submissions survive profile removal.
+  profileId  String?          @map("profile_id") @db.Uuid
+  name       String           @db.VarChar(100)
+  email      String           @db.VarChar(254)
+  phone      String?          @db.VarChar(30)
+  subject    String           @db.VarChar(150)
+  message    String           @db.VarChar(5000)
+  status     SubmissionStatus @default(NEW)
+  /// When the email notification was delivered; null if not sent (unconfigured or failed).
+  notifiedAt DateTime?        @map("notified_at")
+  createdAt  DateTime         @default(now()) @map("created_at")
+
+  profile Profile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+  @@index([profileId, createdAt])
+  @@map("contact_submissions")
+}
